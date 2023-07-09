@@ -16,7 +16,7 @@ Please, cite the following work for any use of the code or for a reference to th
   year      = {2023}
   }
 ```
-Note that the proceedings are not published yet. When published, the related bibtex with the information about the pages will be updated.
+Note that the proceedings are **not published yet.** When published, the related bibtex with the information about the pages will be updated.
 
 # Installation Dependencies
 
