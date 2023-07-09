@@ -55,7 +55,7 @@ def menu():
     parser.add_argument('-db_test_gt', required=False, help='Dataset path to test (gt images)')
 
     parser.add_argument('-aug',   nargs='*',
-                        choices=utilConst.AUGMENTATION_CHOICES_TRAIN,
+                        choices=utilConst.AUGMENTATION_CHOICES,
                         default=[utilConst.AUGMENTATION_NONE], 
                         help='Data augmentation modes')
 
