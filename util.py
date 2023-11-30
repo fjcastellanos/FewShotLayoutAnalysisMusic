@@ -4,6 +4,7 @@ import numpy as np
 import utilConst
 import tensorflow as tf
 import cv2
+import math
 
 
 def create_Validation_and_Training_partitions(list_src_train, list_gt_train, pages_train=None):
@@ -11,7 +12,12 @@ def create_Validation_and_Training_partitions(list_src_train, list_gt_train, pag
     corpora = utilIO.match_SRC_GT_Images(list_src_train, list_gt_train)
     random.seed(78)
     random.shuffle(corpora)
-    num_val_images = int(0.2*len(corpora))
+    num_val_images = math.ceil(0.2*len(corpora))
+
+    if len(list_src_train) == 1:
+        val_data = corpora[0:1]    
+        train_data = corpora[0:1]    
+        return train_data, val_data
 
     val_data = corpora[0:num_val_images]
 
