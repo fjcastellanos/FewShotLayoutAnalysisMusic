@@ -139,6 +139,7 @@ def getPathModel(config):
     __remove_attribute_namespace(config_copy, 'aug_test')
     __remove_attribute_namespace(config_copy, 'n_aug')
     __remove_attribute_namespace(config_copy, 'drop_test')
+    __remove_attribute_namespace(config_copy, 'm')
 
     if config.no_mask is None or config.no_mask == False:
         __remove_attribute_namespace(config_copy, 'no_mask')

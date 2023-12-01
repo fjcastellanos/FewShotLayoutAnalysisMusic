@@ -47,6 +47,7 @@ K.set_image_data_format('channels_last')
 def menu():
     parser = argparse.ArgumentParser(description='Data augmentation on test')
 
+    parser.add_argument('-m', required=False, help='Pathfile for the model')
     
     parser.add_argument('-db_train_src', required=True, help='Dataset path for training (src imags)')
     parser.add_argument('-db_train_gt', required=True, help='Dataset path for training (gt images)')
@@ -101,7 +102,10 @@ if __name__ == "__main__":
     config = menu()
     print (config)
     
-    path_model = utilIO.getPathModel(config)
+    if config.m is None:
+      path_model = utilIO.getPathModel(config)
+    else:
+      path_model = config.m
     utilIO.createParentDirectory(path_model)
     
     input_shape = util.getInputShape(config)
