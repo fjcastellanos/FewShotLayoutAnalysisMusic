@@ -509,9 +509,6 @@ def apply_augmentation(x_image, y_image, regions_mask, type_augmentation, value_
         regions_mask_out = (rotate_bound(regions_mask_float, angle) > 0) * 1
         if y_image is not None:
             y_image_out = apply_mask(y_image_out, regions_mask_out)
-        
-        l = np.where((regions_mask_out == 0))
-        x_image_out[l] = utilConst.kPIXEL_VALUE_FOR_MASKING
 
         type_augmentation_out = (type_augmentation, angle)
         
@@ -530,12 +527,14 @@ def apply_augmentation(x_image, y_image, regions_mask, type_augmentation, value_
         if y_image is not None:
             y_image_out = apply_mask(y_image_out, regions_mask_out)
         type_augmentation_out = (type_augmentation, zoom_factor)
-
-        l = np.where((regions_mask_out == 0))
-        x_image_out[l] = utilConst.kPIXEL_VALUE_FOR_MASKING
         
     elif type_augmentation == utilConst.AUGMENTATION_DROPOUT:
         assert (False)
+        
+    regions_mask_out = (regions_mask_out>0.5)*1
+    l = np.where((regions_mask_out == 0))
+    x_image_out[l] = utilConst.kPIXEL_VALUE_FOR_MASKING
+    y_image_out[l] = 0
                 
     return x_image_out, y_image_out, regions_mask_out, type_augmentation_out
 
