@@ -500,7 +500,7 @@ def apply_augmentation(x_image, y_image, regions_mask, type_augmentation, value_
         type_augmentation_out = (type_augmentation, -1)
     elif type_augmentation == utilConst.AUGMENTATION_ROTATION:
         if value_augmentation is None:
-            angle = random.uniform(-45, 45)
+            angle = random.uniform(-5, 5)
         else:
             angle = value_augmentation
         x_image_out = rotate_bound(x_image, angle)
@@ -514,7 +514,7 @@ def apply_augmentation(x_image, y_image, regions_mask, type_augmentation, value_
         
     elif type_augmentation == utilConst.AUGMENTATION_SCALE:
         if value_augmentation is None:
-            zoom_factor = random.uniform(0.80, 1.20)
+            zoom_factor = random.uniform(0.90, 1.10)
         else:
             zoom_factor = value_augmentation
         ROWS = x_image.shape[0]
