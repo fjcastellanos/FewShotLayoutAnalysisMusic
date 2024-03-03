@@ -13,10 +13,10 @@ Please, cite the following work for any use of the code or for a reference to th
   title     = {A Few-shot Neural Approach for Layout Analysis of Music Score Images},
   booktitle = {Proceedings of the 24th International Society for Music Information
                Retrieval Conference, Milan, Italy, November 5-9, 2023},
+  pages     = {106--113},
   year      = {2023}
   }
 ```
-Note that the proceedings are **not published yet.** When published, the related bibtex with the information about the pages will be updated.
 
 # Installation Dependencies
 
